@@ -48,11 +48,11 @@ public extension URLSession {
 extension URLSession {
     @available(iOS, deprecated: 15, message: "Use `download(from:delegate:)` instead")
     func download(from url: URL) async throws -> (URL, URLResponse) {
-        try await download(with: URLRequest(url: url))
+        try await download(for: URLRequest(url: url))
     }
 
     @available(iOS, deprecated: 15, message: "Use `download(for:delegate:)` instead")
-    func download(with request: URLRequest) async throws -> (URL, URLResponse) {
+    func download(for request: URLRequest) async throws -> (URL, URLResponse) {
         let sessionTask = URLSessionTaskActor()
 
         return try await withTaskCancellationHandler {
