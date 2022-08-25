@@ -45,7 +45,7 @@ public extension URLSession {
     }
 }
 
-extension URLSession {
+public extension URLSession {
     @available(iOS, deprecated: 15, message: "Use `download(from:delegate:)` instead")
     func download(from url: URL) async throws -> (URL, URLResponse) {
         try await download(for: URLRequest(url: url))
